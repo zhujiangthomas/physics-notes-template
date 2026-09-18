@@ -1,0 +1,166 @@
+% ==================== Page and typography ====================
+\usepackage[a4paper,margin=2.5cm,headheight=15pt]{geometry}
+\usepackage{fontspec}
+\usepackage{microtype}
+\usepackage{setspace}
+\usepackage{fancyhdr}
+\usepackage{tocloft}
+\usepackage{xcolor}
+
+\definecolor{noteblue}{HTML}{245B8A}
+\definecolor{notegreen}{HTML}{2D6A4F}
+\definecolor{notered}{HTML}{A23E48}
+\definecolor{notegrey}{HTML}{F4F6F8}
+
+\setstretch{1.18}
+\setlength{\parindent}{2em}
+\setlength{\parskip}{0.25em}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE]{\small\leftmark}
+\fancyhead[RO]{\small\rightmark}
+\fancyfoot[C]{\thepage}
+
+% Use leaders and right-aligned page numbers for chapter entries in the TOC.
+\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
+
+% ==================== Mathematics and physics ====================
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{bm}
+\usepackage{tensor}
+\usepackage{braket}
+\usepackage{cancel}
+\usepackage{esint}
+\usepackage{empheq}
+
+% Units, numerical values, and chemical/nuclear equations
+\usepackage{siunitx}
+\sisetup{
+  separate-uncertainty = true,
+  per-mode = symbol,
+  range-phrase = {--},
+  range-units = single
+}
+\usepackage[version=4]{mhchem}
+
+% ==================== Figures, tables, and diagrams ====================
+\usepackage{graphicx}
+\graphicspath{{images/}{../images/}}
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{tabularx}
+
+\usepackage{tikz}
+\usetikzlibrary{
+  arrows.meta,
+  angles,
+  quotes,
+  calc,
+  decorations.pathmorphing,
+  patterns,
+  positioning
+}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage[europeanresistors,americaninductors]{circuitikz}
+
+% Optional: Feynman diagrams. LuaLaTeX is recommended when enabled.
+% \usepackage{tikz-feynman}
+
+% ==================== Code, lists, and note boxes ====================
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage[most]{tcolorbox}
+
+\lstset{
+  basicstyle=\ttfamily\small,
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  frame=single,
+  breaklines=true,
+  backgroundcolor=\color{notegrey}
+}
+
+\newtcolorbox{summarybox}[1][Section Summary]{
+  enhanced,
+  breakable,
+  colback=noteblue!5,
+  colframe=noteblue,
+  fonttitle=\bfseries,
+  title=#1
+}
+\newtcolorbox{warningbox}[1][Common Pitfall]{
+  enhanced,
+  breakable,
+  colback=notered!5,
+  colframe=notered,
+  fonttitle=\bfseries,
+  title=#1
+}
+
+% ==================== Theorem environments ====================
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[chapter]
+\newtheorem{example}{Example}[chapter]
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{law}{Law}[chapter]
+\newtheorem{proposition}{Proposition}[chapter]
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}[chapter]
+
+% ==================== Subfiles and bibliography ====================
+\usepackage{subfiles}
+\usepackage[
+  backend=biber,
+  style=numeric,
+  sorting=none,
+  giveninits=true
+]{biblatex}
+% \subfix automatically corrects the path when compiling chapters/*.tex.
+\addbibresource{\subfix{references.bib}}
+
+% ==================== Links and intelligent references ====================
+% Load these packages near the end of the preamble.
+\usepackage[
+  colorlinks=true,
+  linkcolor=noteblue,
+  citecolor=notegreen,
+  urlcolor=notered,
+  bookmarksopen=true
+]{hyperref}
+\usepackage[nameinlink,noabbrev]{cleveref}
+
+\crefname{equation}{equation}{equations}
+\crefname{figure}{figure}{figures}
+\crefname{table}{table}{tables}
+\crefname{definition}{definition}{definitions}
+\crefname{theorem}{theorem}{theorems}
+\crefname{law}{law}{laws}
+\crefname{example}{example}{examples}
+
+% ==================== Common physics commands ====================
+\newcommand{\dd}{\mathop{}\!\mathrm{d}}
+\newcommand{\ee}{\mathrm{e}}
+\newcommand{\ii}{\mathrm{i}}
+\newcommand{\vect}[1]{\bm{#1}}
+\newcommand{\uvect}[1]{\bm{\hat{#1}}}
+\newcommand{\grad}{\bm{\nabla}}
+\newcommand{\laplacian}{\nabla^2}
+\newcommand{\comm}[2]{\left[#1,#2\right]}
+\newcommand{\acomm}[2]{\left\{#1,#2\right\}}
+\newcommand{\expect}[1]{\left\langle #1\right\rangle}
+\newcommand{\absq}[1]{\left|#1\right|^2}
+\newcommand{\evalat}[2]{\left.#1\right|_{#2}}
+\NewDocumentCommand{\dv}{m m}{\frac{\dd #1}{\dd #2}}
+\NewDocumentCommand{\pdv}{m m}{\frac{\partial #1}{\partial #2}}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\Res}{Res}
+\DeclareMathOperator{\sgn}{sgn}
+
+\numberwithin{equation}{chapter}

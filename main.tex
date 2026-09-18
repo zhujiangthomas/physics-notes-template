@@ -1,0 +1,31 @@
+% !TEX program = xelatex
+% !BIB program = biber
+\documentclass[11pt,openany]{book}
+
+\input{preamble}
+
+\title{Physics Notes}
+\author{Your Name}
+\date{\today}
+
+\begin{document}
+
+\frontmatter
+\maketitle
+\cleardoublepage
+\tableofcontents
+\cleardoublepage
+
+\mainmatter
+\subfile{chapters/01-mathematical-tools}
+\subfile{chapters/02-classical-mechanics}
+\subfile{chapters/03-electromagnetism}
+\subfile{chapters/04-quantum-mechanics}
+
+\appendix
+\subfile{chapters/appendix-constants}
+
+\backmatter
+\subfile{bib}
+
+\end{document}
