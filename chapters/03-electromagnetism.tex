@@ -1,0 +1,33 @@
+% !TEX root = ../main.tex
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+\chapter{Electromagnetism}
+\label{chap:electromagnetism}
+
+\section{Maxwell's Equations}
+
+In vacuum, the differential form is
+\begin{align}
+  \grad\cdot\vect{E} &= \frac{\rho}{\varepsilon_0}, &
+  \grad\cdot\vect{B} &= 0, \\
+  \grad\times\vect{E} &= -\pdv{\vect{B}}{t}, &
+  \grad\times\vect{B} &= \mu_0\vect{J}
+    +\mu_0\varepsilon_0\pdv{\vect{E}}{t}.
+\end{align}
+
+\section{A Simple Circuit Diagram}
+
+\begin{figure}[H]
+  \centering
+  \begin{circuitikz}
+    \draw (0,0) to[battery1,l=$V$] (0,2)
+      to[R,l=$R$] (3,2)
+      to[C,l=$C$] (3,0) -- (0,0);
+  \end{circuitikz}
+  \caption{An example of a series RC circuit.}
+  \label{fig:rc-circuit}
+\end{figure}
+
+\end{document}

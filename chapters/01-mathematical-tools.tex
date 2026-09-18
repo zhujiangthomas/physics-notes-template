@@ -1,0 +1,34 @@
+% !TEX root = ../main.tex
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+\chapter{Mathematical Tools}
+\label{chap:math-tools}
+
+\section{Vector Calculus}
+
+For a scalar field $\phi$ and a vector field $\vect{A}$, the most common
+differential operators are
+\begin{equation}
+  \grad \phi, \qquad
+  \grad \cdot \vect{A}, \qquad
+  \grad \times \vect{A}, \qquad
+  \laplacian \phi.
+  \label{eq:vector-operators}
+\end{equation}
+
+\begin{theorem}[Divergence theorem]
+  If the boundary of a volume $V$ is the closed surface $\partial V$, then
+  \begin{equation}
+    \iiint_V (\grad\cdot\vect{A})\,\dd V
+    = \oiint_{\partial V} \vect{A}\cdot\dd\vect{S}.
+  \end{equation}
+\end{theorem}
+
+\begin{summarybox}
+  Use this box to record key equations, assumptions, dimensional checks, and
+  connections to other chapters.
+\end{summarybox}
+
+\end{document}

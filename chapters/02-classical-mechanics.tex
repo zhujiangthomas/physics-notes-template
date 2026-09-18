@@ -1,0 +1,36 @@
+% !TEX root = ../main.tex
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+\chapter{Classical Mechanics}
+\label{chap:mechanics}
+
+\section{Newton's Laws}
+
+\begin{law}[Newton's second law]
+  The net force acting on a particle equals the time derivative of its
+  momentum:
+  \begin{equation}
+    \vect{F}=\dv{\vect{p}}{t}.
+    \label{eq:newton-second-law}
+  \end{equation}
+\end{law}
+
+For constant mass, \cref{eq:newton-second-law} becomes
+\begin{equation}
+  \vect{F}=m\vect{a}.
+\end{equation}
+
+\section{Dimensional Analysis}
+
+The SI unit of force is
+$\si{\newton}=\si{\kilogram\metre\per\second\squared}$.
+
+\begin{warningbox}
+  State the reference frame before writing the equations of motion. The
+  standard form of Newton's second law applies directly only in an inertial
+  frame.
+\end{warningbox}
+
+\end{document}
